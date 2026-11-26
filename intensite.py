@@ -36,4 +36,17 @@ while min_f <= max(longueurs_onde) :
     min_f = max_f
     max_f = min_f + pas
 
+########################################### Affichage des données #########################################################
 
+for min_f in dictionnaire :
+    valeurs = dictionnaire[min_f]
+    if len(valeurs) > 0 :
+        v_num = len(valeurs)
+        v_min = min(valeurs)
+        v_max = max(valeurs)
+        v_moy = sum(valeurs)/len(valeurs)
+
+        print('la fenetre : ', min_f , "contient ", v_num, 'intensités' ,'la valeur minimum est', v_min , 'la valeur maximum est', v_max, "l'intensite moyenne est ", v_moy)
+
+    else :
+        print('Aucune intensité enregistré dans cette fenetre')
