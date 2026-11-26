@@ -18,12 +18,22 @@ for ligne in fichier :
         longueurs_onde.append(float(colonnes[0]))
         intensites.append(float(colonnes[1]))
 
-
-
 ########################### Création du dictionnaire ###########################################
 
-min = 330
-max = min + 10
+pas = int(sys.argv[2])
+min_f = (min(longueurs_onde)//pas)*pas
+max_f = min_f + pas
 
-fenetre_10 = []
+dictionnaire = {}
+
+while min_f <= max(longueurs_onde) :
+    fenetre = [] 
+    for i in range(len(longueurs_onde)) :
+        if max_f > longueurs_onde[i] >= min_f :
+            fenetre.append(intensites[i])
+    dictionnaire[min_f] = fenetre
+    
+    min_f = max_f
+    max_f = min_f + pas
+
 
