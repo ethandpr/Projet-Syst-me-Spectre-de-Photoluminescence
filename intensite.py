@@ -27,19 +27,22 @@ max_f = min_f + pas
 dictionnaire = {}
 
 while min_f <= max(longueurs_onde) :
-    fenetre = [] 
+    liste_int = []
+    liste_nm = [] 
     for i in range(len(longueurs_onde)) :
         if max_f > longueurs_onde[i] >= min_f :
-            fenetre.append(intensites[i])
-    dictionnaire[min_f] = fenetre
+            liste_int.append(intensites[i])
+            liste_nm.append(longueurs_onde[i])
+    dictionnaire[min_f] = {"intensité": liste_int, "nm": liste_nm} 
     
     min_f = max_f
     max_f = min_f + pas
 
+#print(dictionnaire)
 ########################################### Affichage des données #########################################################
 
 for min_f in dictionnaire :
-    valeurs = dictionnaire[min_f]
+    valeurs = dictionnaire[min_f]["intensité"]
     if len(valeurs) > 0 :
         v_num = len(valeurs)
         v_min = min(valeurs)
